@@ -55,7 +55,6 @@ const TaskModal = ({ isOpen, onClose, onSubmit, task }) => {
             />
           </div>
 
-          {/* Status dropdown */}
           <div className="form-group">
             <label htmlFor="status">Status</label>
             <div className="status-dropdown">

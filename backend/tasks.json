@@ -52,5 +52,17 @@
     "title": "Test progress task",
     "description": "Test progress task description",
     "status": "pending"
+  },
+  {
+    "id": 10,
+    "title": "eee",
+    "description": "eee description",
+    "status": "pending"
+  },
+  {
+    "id": 11,
+    "title": "Add a new task with updated status ",
+    "description": "Updated status provoided",
+    "status": "completed"
   }
 ]

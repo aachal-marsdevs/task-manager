@@ -1,0 +1,270 @@
+/* Global Styles */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden; /* Prevent full page scroll */
+}
+
+h1 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Task List Container */
+.task-list-container {
+  max-width: 1200px;
+  height: 80vh; /* Set a fixed height to the container */
+  margin: 40px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevent full container scroll */
+}
+
+/* Task Columns */
+.task-columns {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex: 1;
+  overflow: hidden; /* Prevent parent container scroll */
+}
+
+.task-column {
+  flex: 1;
+  background-color: #f9fafc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  max-height: 100%; /* Ensure the task column takes the full height */
+  overflow-y: auto; /* Enable vertical scrolling when the tasks overflow */
+}
+
+.task-column h2 {
+  font-size: 20px;
+  color: #007bff;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+/* Task Item */
+.task-item {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  cursor: grab;
+  flex-shrink: 0; /* Prevent the task items from shrinking */
+}
+
+.task-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Task Header */
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-header h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+/* Task Actions */
+.task-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Action Icon */
+.action-icon {
+  cursor: pointer;
+  color: #007bff;
+  transition: color 0.3s;
+}
+
+.action-icon:hover {
+  color: #0056b3;
+}
+
+/* Status Dropdown */
+.status-dropdown {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.status-dropdown:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Error Message */
+.error {
+  color: #d9534f;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Add New Task Button */
+.task-actions {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-primary {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 15px;
+  width: 100%; /* Ensure the form fields don't overflow */
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box; /* Ensure padding and border are included in the element's width and height */
+}
+
+.form-group textarea {
+  resize: vertical; /* Allow vertical resizing, but prevent horizontal overflow */
+  min-height: 100px;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn-secondary {
+  padding: 10px 15px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: #d6d6d6;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .task-columns {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .task-column {
+    width: 100%;
+  }
+
+  .task-list-container {
+    padding: 15px;
+  }
+
+  .modal {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .btn-primary,
+  .btn-secondary {
+    width: 100%; /* Make buttons full-width for smaller screens */
+  }
+
+  .task-header h3 {
+    font-size: 16px;
+  }
+
+  .task-column h2 {
+    font-size: 18px;
+  }
+
+  .task-item {
+    padding: 15px;
+  }
+}
+
+.filter-dropdown {
+  padding: 10px;
+  margin-right: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}

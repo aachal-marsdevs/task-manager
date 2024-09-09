@@ -29,7 +29,6 @@ describe("TaskDragDropContext Component", () => {
       />
     );
 
-    // Ensure all task columns render correctly
     expect(
       screen.getByRole("heading", { name: /pending/i })
     ).toBeInTheDocument();
@@ -53,14 +52,12 @@ describe("TaskDragDropContext Component", () => {
       />
     );
 
-    // Simulate the drag and drop event by directly calling onDragEnd
     const result = {
       destination: { droppableId: "inprogress", index: 0 },
       source: { droppableId: "pending", index: 0 },
       draggableId: "1",
     };
 
-    // Simulate the onDragEnd event
     act(() => {
       const dragDropContext = screen.getByTestId("task-columns");
       const dragDropContextInstance =
@@ -68,7 +65,6 @@ describe("TaskDragDropContext Component", () => {
       dragDropContextInstance.onDragEnd(result);
     });
 
-    // Verify handleStatusChange was called with correct arguments
     expect(handleStatusChange).toHaveBeenCalledWith("1", "inprogress");
   });
 });

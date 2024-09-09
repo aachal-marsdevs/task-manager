@@ -46,5 +46,11 @@
     "title": "XYZ",
     "description": "XYZ",
     "status": "pending"
+  },
+  {
+    "id": 9,
+    "title": "Test progress task",
+    "description": "Test progress task description",
+    "status": "pending"
   }
 ]

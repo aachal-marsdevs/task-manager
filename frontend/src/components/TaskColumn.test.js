@@ -5,7 +5,6 @@ import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
 import { DragDropContext } from "react-beautiful-dnd";
 
-// Create a mock store
 const mockStore = configureMockStore();
 const store = mockStore({});
 
@@ -32,10 +31,8 @@ describe("TaskColumn Component", () => {
       />
     );
 
-    // Use test id to select the column title
     expect(screen.getByTestId("column-title-pending")).toBeInTheDocument();
 
-    // Assert that tasks are rendered
     mockTasks.forEach((task) => {
       expect(screen.getByText(task.title)).toBeInTheDocument();
     });
@@ -51,10 +48,8 @@ describe("TaskColumn Component", () => {
       />
     );
 
-    // Use the test id to select the edit button for the first task
     fireEvent.click(screen.getByTestId("edit-button-1"));
 
-    // Assert that handleEditTask was called with the correct task data
     expect(handleEditTask).toHaveBeenCalledWith(mockTasks[0]);
   });
 
@@ -67,7 +62,6 @@ describe("TaskColumn Component", () => {
       />
     );
 
-    // Use the test id to select the draggable element
     const draggableTask = screen.getByTestId("draggable-task-1");
     expect(draggableTask).toHaveAttribute("data-rbd-draggable-id", "1");
   });

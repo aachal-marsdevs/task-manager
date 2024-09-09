@@ -26,7 +26,7 @@ describe("Task Component", () => {
       <Task task={mockTask} onEdit={mockOnEdit} onStatusChange={jest.fn()} />
     );
 
-    fireEvent.click(screen.getByTestId("edit-icon")); // Use getByTestId here
+    fireEvent.click(screen.getByTestId("edit-icon"));
 
     expect(mockOnEdit).toHaveBeenCalledWith(mockTask);
   });

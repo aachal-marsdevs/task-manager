@@ -26,7 +26,7 @@ const TaskColumn = ({ status, tasks, handleEditTask }) => {
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}
                   className={snapshot.isDragging ? "dragging" : ""}
-                  data-testid={`draggable-task-${task.id}`} // Add test id here
+                  data-testid={`draggable-task-${task.id}`}
                 >
                   <Task task={task} onEdit={handleEditTask} />
                 </div>

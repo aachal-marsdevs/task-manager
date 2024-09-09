@@ -8,7 +8,6 @@ import {
   UPDATE_TASK_REVERT,
 } from "../constants/taskConstants";
 
-// Fetch tasks
 export const fetchTasks = () => async (dispatch) => {
   try {
     const { data } = await axios.get("/tasks");
@@ -19,44 +18,38 @@ export const fetchTasks = () => async (dispatch) => {
   }
 };
 
-// Add task API call
 export const addTask = (task) => async () => {
   try {
-    // Make the API call to add the task, but don't update state locally
     await axios.post("/tasks", task);
-    // The task will be added via the socket event, no need to dispatch ADD_TASK_SUCCESS here
   } catch (error) {
     toast.error("Failed to add task. Please try again.");
   }
 };
 
-// Add task from Socket.IO (Socket event handler)
 export const addTaskFromSocket = (task) => (dispatch) => {
   dispatch({ type: ADD_TASK_SUCCESS, payload: task });
 };
 
-// Update task via API or form
 export const updateTask = (task) => async (dispatch) => {
   try {
     const { data } = await axios.put(`/tasks/${task.id}`, task);
     dispatch({
       type: UPDATE_TASK_SUCCESS,
-      payload: data, // Updated task data returned from API
+      payload: data,
     });
     toast.success("Task updated successfully.");
   } catch (error) {
     dispatch({
       type: UPDATE_TASK_REVERT,
-      payload: task, // Revert to the original task if update fails
+      payload: task,
     });
     toast.error("Failed to update task.");
   }
 };
 
-// Update task status from Socket.IO (Socket event handler)
 export const updateTaskStatusFromSocket = (updatedTask) => (dispatch) => {
   dispatch({
     type: UPDATE_TASK_SUCCESS,
-    payload: updatedTask, // Update task directly from the socket event
+    payload: updatedTask,
   });
 };

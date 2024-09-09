@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import { taskReducer } from "../reducers/taskReducer";
-import { thunk } from "redux-thunk"; // Use named import
+import { thunk } from "redux-thunk";
 
 const rootReducer = combineReducers({
 	tasks: taskReducer,
@@ -8,7 +8,6 @@ const rootReducer = combineReducers({
 
 const middleware = [thunk];
 
-// Create store without Redux DevTools
 const store = createStore(rootReducer, applyMiddleware(...middleware));
 
 export default store;

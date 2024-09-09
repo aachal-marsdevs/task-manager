@@ -6,7 +6,6 @@ const TaskModal = ({ isOpen, onClose, onSubmit, task }) => {
   const [description, setDescription] = useState(task ? task.description : "");
   const [status, setStatus] = useState(task ? task.status : "pending");
 
-  // Update form fields when task changes
   useEffect(() => {
     if (task) {
       setTitle(task.title);
@@ -17,14 +16,13 @@ const TaskModal = ({ isOpen, onClose, onSubmit, task }) => {
 
   if (!isOpen) return null;
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit({
       id: task ? task.id : null,
       title,
       description,
-      status, // Include status in the form submission
+      status,
     });
     setDescription("");
     setTitle("");
@@ -86,7 +84,7 @@ const TaskModal = ({ isOpen, onClose, onSubmit, task }) => {
         </form>
       </div>
     </div>,
-    document.getElementById("modal-root") // Ensures that modal is rendered in the correct DOM node
+    document.getElementById("modal-root")
   );
 };
 

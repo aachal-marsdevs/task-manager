@@ -6,7 +6,7 @@ import {
 	updateTaskStatusFromSocket,
 } from "../actions/taskActions";
 
-const SOCKET_SERVER_URL = "http://localhost:5000"; // Your backend server
+const SOCKET_SERVER_URL = "http://localhost:5000";
 
 const useSocketIO = () => {
 	const dispatch = useDispatch();
@@ -18,7 +18,6 @@ const useSocketIO = () => {
 			reconnectionDelay: 2000,
 		});
 
-		// Listen for real-time events
 		socket.on("taskAdded", (newTask) => {
 			dispatch(addTaskFromSocket(newTask));
 		});
@@ -27,7 +26,6 @@ const useSocketIO = () => {
 			dispatch(updateTaskStatusFromSocket(updatedTask));
 		});
 
-		// Handle connection errors
 		socket.on("connect_error", () => {
 			console.error(
 				"Connection to server failed. Trying to reconnect..."
@@ -38,16 +36,15 @@ const useSocketIO = () => {
 			console.error(
 				"Disconnected from server. Attempting to reconnect..."
 			);
-			socket.connect(); // Try to reconnect automatically
+			socket.connect();
 		});
 
-		// Cleanup function to avoid re-establishing socket connections on component re-renders
 		return () => {
-			socket.disconnect(); // Disconnect when the component unmounts
+			socket.disconnect(); 
 		};
-	}, [dispatch]); // Empty dependency array ensures this effect runs only once
+	}, [dispatch]); 
 
-	return null; // This hook does not render anything
+	return null; 
 };
 
 export default useSocketIO;

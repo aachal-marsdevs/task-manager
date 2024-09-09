@@ -12,7 +12,7 @@ const Task = ({ task, onEdit, onStatusChange }) => {
             icon={faEdit}
             onClick={() => onEdit(task)}
             className="action-icon"
-            data-testid={`edit-button-${task.id}`} // Added data-testid here
+            data-testid={`edit-button-${task.id}`}
           />
         </div>
       </div>

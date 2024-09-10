@@ -25,8 +25,17 @@ const saveTasks = (tasks) => {
   fs.writeFileSync(tasksFilePath, JSON.stringify(tasks, null, 2));
 };
 
+const paginate = (array, page, limit) => {
+  const startIndex = (page - 1) * limit;
+  return array.slice(startIndex, startIndex + limit);
+};
+
 app.get("/tasks", (req, res) => {
-  res.json(tasks);
+  const { page = 1, limit = 5 } = req.query;
+  const paginatedTasks = paginate(tasks, parseInt(page), parseInt(limit));
+  const hasMore = tasks.length > page * limit;
+
+  res.json({ tasks: paginatedTasks, hasMore });
 });
 
 app.post("/tasks", (req, res) => {

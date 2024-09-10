@@ -1,42 +1,44 @@
 import React from "react";
-import { Droppable, Draggable } from "react-beautiful-dnd";
+import { Droppable } from "react-beautiful-dnd";
 import Task from "./Task";
 
-const TaskColumn = ({ status, tasks, handleEditTask }) => {
+const TaskColumn = ({ status, tasks, handleEditTask, lastTaskElementRef }) => {
   return (
-    <Droppable droppableId={status.id}>
-      {(provided, snapshot) => (
-        <div
-          className={`task-column ${
-            snapshot.isDraggingOver ? "dragging-over" : ""
-          }`}
-          ref={provided.innerRef}
-          {...provided.droppableProps}
-        >
-          <h2 data-testid={`column-title-${status.id}`}>{status.title}</h2>
-          {tasks.map((task, index) => (
-            <Draggable
-              key={task.id}
-              draggableId={String(task.id)}
-              index={index}
-            >
-              {(provided, snapshot) => (
-                <div
-                  ref={provided.innerRef}
-                  {...provided.draggableProps}
-                  {...provided.dragHandleProps}
-                  className={snapshot.isDragging ? "dragging" : ""}
-                  data-testid={`draggable-task-${task.id}`}
-                >
-                  <Task task={task} onEdit={handleEditTask} />
-                </div>
-              )}
-            </Draggable>
-          ))}
-          {provided.placeholder}
-        </div>
-      )}
-    </Droppable>
+    <div className="task-column">
+      <h2>{status.title}</h2>
+      <Droppable droppableId={status.id}>
+        {(provided) => (
+          <div
+            className="task-column-content"
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+          >
+            {tasks.map((task, index) => {
+              if (tasks.length === index + 1) {
+                return (
+                  <div ref={lastTaskElementRef} key={task.id}>
+                    <Task
+                      task={task}
+                      index={index}
+                      handleEditTask={handleEditTask}
+                    />
+                  </div>
+                );
+              }
+              return (
+                <Task
+                  key={task.id}
+                  task={task}
+                  index={index}
+                  handleEditTask={handleEditTask}
+                />
+              );
+            })}
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
+    </div>
   );
 };
 

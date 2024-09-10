@@ -7,6 +7,7 @@ const TaskDragDropContext = ({
   filter,
   handleEditTask,
   handleStatusChange,
+  lastTaskElementRef,
 }) => {
   const taskStatuses = [
     { id: "pending", title: "Pending" },
@@ -49,6 +50,8 @@ const TaskDragDropContext = ({
             status={status}
             tasks={getFilteredTasks(status.id)}
             handleEditTask={handleEditTask}
+            handleStatusChange={handleStatusChange}
+            lastTaskElementRef={lastTaskElementRef}
           />
         ))}
       </div>

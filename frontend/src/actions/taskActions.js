@@ -50,11 +50,6 @@ export const addTask = (task) => async (dispatch, getState) => {
 
     const updatedTasks = [...getState().tasks.tasks, data];
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
-
-    dispatch({
-      type: ADD_TASK_SUCCESS,
-      payload: data,
-    });
   } catch (error) {
     toast.error("Failed to add task. Please try again.");
   }

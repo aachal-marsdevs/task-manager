@@ -1,10 +1,11 @@
+/* Global Styles */
 body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   background-color: #f0f2f5;
   margin: 0;
   padding: 0;
   height: 100vh;
-  overflow: hidden;
+  overflow: hidden; /* Prevent full page scroll */
 }
 
 h1 {
@@ -14,9 +15,10 @@ h1 {
   color: #333;
 }
 
+/* Task List Container */
 .task-list-container {
   max-width: 1200px;
-  height: 80vh;
+  height: 80vh; /* Set a fixed height to the container */
   margin: 40px auto;
   background: white;
   padding: 20px;
@@ -24,15 +26,16 @@ h1 {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: hidden; /* Prevent full container scroll */
 }
 
+/* Task Columns */
 .task-columns {
   display: flex;
   justify-content: space-between;
   gap: 20px;
   flex: 1;
-  overflow: hidden;
+  overflow: hidden; /* Prevent parent container scroll */
 }
 
 .task-column {
@@ -43,8 +46,8 @@ h1 {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
-  max-height: 100%;
-  overflow-y: auto;
+  max-height: 100%; /* Ensure the task column takes the full height */
+  overflow-y: auto; /* Enable vertical scrolling when the tasks overflow */
 }
 
 .task-column h2 {
@@ -54,6 +57,7 @@ h1 {
   flex-shrink: 0;
 }
 
+/* Task Item */
 .task-item {
   background-color: #fff;
   padding: 20px;
@@ -63,7 +67,7 @@ h1 {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   position: relative;
   cursor: grab;
-  flex-shrink: 0;
+  flex-shrink: 0; /* Prevent the task items from shrinking */
 }
 
 .task-item:hover {
@@ -71,6 +75,7 @@ h1 {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
+/* Task Header */
 .task-header {
   display: flex;
   justify-content: space-between;
@@ -82,11 +87,13 @@ h1 {
   margin: 0;
 }
 
+/* Task Actions */
 .task-actions {
   display: flex;
   gap: 10px;
 }
 
+/* Action Icon */
 .action-icon {
   cursor: pointer;
   color: #007bff;
@@ -97,6 +104,7 @@ h1 {
   color: #0056b3;
 }
 
+/* Status Dropdown */
 .status-dropdown {
   padding: 8px 12px;
   border: 1px solid #ccc;
@@ -111,6 +119,7 @@ h1 {
   outline: none;
 }
 
+/* Error Message */
 .error {
   color: #d9534f;
   text-align: center;
@@ -118,6 +127,7 @@ h1 {
   margin-top: 10px;
 }
 
+/* Add New Task Button */
 .task-actions {
   margin-bottom: 20px;
   display: flex;
@@ -138,6 +148,7 @@ h1 {
   background-color: #0056b3;
 }
 
+/* Modal Styling */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -161,9 +172,10 @@ h1 {
   overflow: hidden;
 }
 
+/* Form Group */
 .form-group {
   margin-bottom: 15px;
-  width: 100%;
+  width: 100%; /* Ensure the form fields don't overflow */
 }
 
 .form-group label {
@@ -180,14 +192,15 @@ h1 {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Ensure padding and border are included in the element's width and height */
 }
 
 .form-group textarea {
-  resize: vertical;
+  resize: vertical; /* Allow vertical resizing, but prevent horizontal overflow */
   min-height: 100px;
 }
 
+/* Form Actions */
 .form-actions {
   display: flex;
   justify-content: flex-end;
@@ -207,6 +220,7 @@ h1 {
   background-color: #d6d6d6;
 }
 
+/* Responsive Design */
 @media (max-width: 1024px) {
   .task-columns {
     flex-direction: column;
@@ -231,7 +245,7 @@ h1 {
 @media (max-width: 768px) {
   .btn-primary,
   .btn-secondary {
-    width: 100%;
+    width: 100%; /* Make buttons full-width for smaller screens */
   }
 
   .task-header h3 {
@@ -253,11 +267,4 @@ h1 {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
-}
-
-.loader {
-  text-align: center;
-  padding: 20px;
-  font-size: 1.2em;
-  color: #333;
 }

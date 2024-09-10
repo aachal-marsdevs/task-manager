@@ -9,7 +9,7 @@
     "id": 2,
     "title": "Setup Frontend",
     "description": "Create a react application and configure",
-    "status": "completed"
+    "status": "inprogress"
   },
   {
     "id": 3,
@@ -21,7 +21,7 @@
     "id": 4,
     "title": "test one",
     "description": "test one description",
-    "status": "inprogress"
+    "status": "completed"
   },
   {
     "id": 5,
@@ -39,13 +39,13 @@
     "id": 7,
     "title": "Task ABC",
     "description": "ABC ",
-    "status": "inprogress"
+    "status": "pending"
   },
   {
     "id": 8,
     "title": "XYZ",
     "description": "XYZ",
-    "status": "inprogress"
+    "status": "pending"
   },
   {
     "id": 9,
@@ -63,36 +63,6 @@
     "id": 11,
     "title": "Add a new task with updated status ",
     "description": "Updated status provoided",
-    "status": "pending"
-  },
-  {
-    "id": 12,
-    "title": "New 1",
-    "description": "New 1 Description",
-    "status": "pending"
-  },
-  {
-    "id": 13,
-    "title": "New 2 ",
-    "description": "New 2 Description",
-    "status": "pending"
-  },
-  {
-    "id": 14,
-    "title": "New 3 ",
-    "description": "New 3 Description",
-    "status": "pending"
-  },
-  {
-    "id": 15,
-    "title": "A new task to scroll",
-    "description": "New Description",
-    "status": "pending"
-  },
-  {
-    "id": 16,
-    "title": "New Task 1",
-    "description": "New Task 1 Description\n",
-    "status": "pending"
+    "status": "completed"
   }
 ]

@@ -2,7 +2,7 @@ import React from "react";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import Task from "./Task";
 
-const TaskColumn = ({ status, tasks, handleEditTask }) => {
+const TaskColumn = ({ status, tasks, handleEditTask, handleStatusChange }) => {
   return (
     <Droppable droppableId={status.id}>
       {(provided, snapshot) => (
@@ -28,7 +28,11 @@ const TaskColumn = ({ status, tasks, handleEditTask }) => {
                   className={snapshot.isDragging ? "dragging" : ""}
                   data-testid={`draggable-task-${task.id}`}
                 >
-                  <Task task={task} onEdit={handleEditTask} />
+                  <Task
+                    task={task}
+                    onEdit={handleEditTask}
+                    onStatusChange={handleStatusChange}
+                  />
                 </div>
               )}
             </Draggable>

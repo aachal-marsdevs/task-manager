@@ -3,49 +3,49 @@
     "id": 1,
     "title": "this is a new task which is now updated",
     "description": "This is the description",
-    "status": "pending"
+    "status": "inprogress"
   },
   {
     "id": 2,
     "title": "Setup Frontend",
     "description": "Create a react application and configure",
-    "status": "pending"
+    "status": "completed"
   },
   {
     "id": 3,
     "title": "this is a new task - UPDATED",
     "description": "this is the task description - UPDATED",
-    "status": "pending"
+    "status": "completed"
   },
   {
     "id": 4,
     "title": "test one",
     "description": "test one description",
-    "status": "pending"
+    "status": "inprogress"
   },
   {
     "id": 5,
     "title": "Setup infinite scroll",
     "description": "Add infinite scrolling for as much number of tasks added",
-    "status": "pending"
+    "status": "completed"
   },
   {
     "id": 6,
     "title": "New task",
     "description": "New task description",
-    "status": "pending"
+    "status": "inprogress"
   },
   {
     "id": 7,
     "title": "Task ABC",
     "description": "ABC ",
-    "status": "pending"
+    "status": "inprogress"
   },
   {
     "id": 8,
     "title": "XYZ",
     "description": "XYZ",
-    "status": "pending"
+    "status": "inprogress"
   },
   {
     "id": 9,

@@ -9,7 +9,7 @@ const TaskList = () => {
   const dispatch = useDispatch();
   const { tasks, error, hasMore, loading } = useSelector(
     (state) => state.tasks
-  ); // Include loading state
+  );
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingTask, setEditingTask] = useState(null);
@@ -78,7 +78,7 @@ const TaskList = () => {
         handleStatusChange={handleStatusChange}
         lastTaskElementRef={lastTaskElementRef}
       />
-      {loading && <div className="loader">Loading tasks...</div>}{" "}
+      {loading && <div className="loader">Loading tasks...</div>}
       <TaskModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}

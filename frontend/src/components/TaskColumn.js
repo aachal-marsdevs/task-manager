@@ -2,7 +2,13 @@ import React from "react";
 import { Droppable } from "react-beautiful-dnd";
 import Task from "./Task";
 
-const TaskColumn = ({ status, tasks, handleEditTask, lastTaskElementRef }) => {
+const TaskColumn = ({
+  status,
+  tasks,
+  handleEditTask,
+  handleStatusChange,
+  lastTaskElementRef,
+}) => {
   return (
     <div className="task-column">
       <h2>{status.title}</h2>
@@ -20,7 +26,8 @@ const TaskColumn = ({ status, tasks, handleEditTask, lastTaskElementRef }) => {
                     <Task
                       task={task}
                       index={index}
-                      handleEditTask={handleEditTask}
+                      onEdit={handleEditTask}
+                      onStatusChange={handleStatusChange}
                     />
                   </div>
                 );
@@ -30,7 +37,8 @@ const TaskColumn = ({ status, tasks, handleEditTask, lastTaskElementRef }) => {
                   key={task.id}
                   task={task}
                   index={index}
-                  handleEditTask={handleEditTask}
+                  onEdit={handleEditTask}
+                  onStatusChange={handleStatusChange}
                 />
               );
             })}

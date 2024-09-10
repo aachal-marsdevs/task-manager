@@ -14,7 +14,7 @@ export const fetchTasks =
   (page = 1) =>
   async (dispatch, getState) => {
     try {
-      dispatch({ type: FETCH_TASKS_REQUEST }); // Dispatch loading state
+      dispatch({ type: FETCH_TASKS_REQUEST });
 
       const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
       const limit = 3;

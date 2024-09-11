@@ -26,7 +26,19 @@ const saveTasks = (tasks) => {
 };
 
 app.get("/tasks", (req, res) => {
-  res.json(tasks);
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 10;
+  const status = req.query.status || "all";
+  const hasMore = tasks.length > page * limit;
+
+  const startIndex = (page - 1) * limit;
+  const endIndex = page * limit;
+  const filteredTasks = tasks.filter((task) => {
+		if (status === "all") return true;
+		return task.status === status;
+  });
+  const paginatedTasks = filteredTasks.slice(startIndex, endIndex);
+  res.json({ tasks: paginatedTasks, hasMore });
 });
 
 app.post("/tasks", (req, res) => {

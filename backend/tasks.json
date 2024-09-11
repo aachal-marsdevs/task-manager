@@ -3,7 +3,7 @@
     "id": 1,
     "title": "this is a new task which is now updated",
     "description": "This is the description",
-    "status": "inprogress"
+    "status": "pending"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "id": 3,
     "title": "this is a new task - UPDATED",
     "description": "this is the task description - UPDATED",
-    "status": "completed"
+    "status": "inprogress"
   },
   {
     "id": 4,
@@ -27,13 +27,13 @@
     "id": 5,
     "title": "Setup infinite scroll",
     "description": "Add infinite scrolling for as much number of tasks added",
-    "status": "completed"
+    "status": "pending"
   },
   {
     "id": 6,
     "title": "New task",
     "description": "New task description",
-    "status": "inprogress"
+    "status": "pending"
   },
   {
     "id": 7,
@@ -63,6 +63,42 @@
     "id": 11,
     "title": "Add a new task with updated status ",
     "description": "Updated status provoided",
-    "status": "completed"
+    "status": "pending"
+  },
+  {
+    "id": 12,
+    "title": "A new task in progress",
+    "description": "A new task in progress",
+    "status": "inprogress"
+  },
+  {
+    "id": 13,
+    "title": "New task in progress",
+    "description": "New task in progress",
+    "status": "inprogress"
+  },
+  {
+    "id": 14,
+    "title": "A new in progress task",
+    "description": "A new in progress task",
+    "status": "inprogress"
+  },
+  {
+    "id": 15,
+    "title": "test ip",
+    "description": "test ip",
+    "status": "inprogress"
+  },
+  {
+    "id": 16,
+    "title": "ip",
+    "description": "ip",
+    "status": "inprogress"
+  },
+  {
+    "id": 17,
+    "title": "dummy task",
+    "description": "dummy description",
+    "status": "inprogress"
   }
 ]

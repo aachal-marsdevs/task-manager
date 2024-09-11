@@ -1,22 +1,44 @@
 import { toast } from "react-toastify";
 import axios from "axios";
 import {
-  FETCH_TASKS_SUCCESS,
-  FETCH_TASKS_FAIL,
-  ADD_TASK_SUCCESS,
-  UPDATE_TASK_SUCCESS,
-  UPDATE_TASK_REVERT,
+	FETCH_TASKS_SUCCESS,
+	FETCH_TASKS_FAIL,
+	ADD_TASK_SUCCESS,
+	UPDATE_TASK_SUCCESS,
+	UPDATE_TASK_REVERT,
+	FETCH_TASK_FOR_FILTER_SUCCESS,
 } from "../constants/taskConstants";
 
 export const fetchTasks = () => async (dispatch) => {
-  try {
-    const { data } = await axios.get("/tasks");
-    dispatch({ type: FETCH_TASKS_SUCCESS, payload: data });
-  } catch (error) {
-    dispatch({ type: FETCH_TASKS_FAIL, payload: error.message });
-    toast.error("Failed to fetch tasks. Please try again.");
-  }
+	try {
+		const { data } = await axios.get("/tasks");
+		dispatch({ type: FETCH_TASKS_SUCCESS, payload: data });
+	} catch (error) {
+		dispatch({ type: FETCH_TASKS_FAIL, payload: error.message });
+		toast.error("Failed to fetch tasks. Please try again.");
+	}
 };
+
+export const fetchTasksWithStatus =
+	(status, page = 1, useFilter = false) =>
+	async (dispatch) => {
+		try {
+			const { data } = await axios.get(
+				`/tasks?status=${status}&page=${page}`
+			);
+			if (!useFilter) {
+				dispatch({ type: FETCH_TASKS_SUCCESS, payload: data });
+			} else {
+				dispatch({
+					type: FETCH_TASK_FOR_FILTER_SUCCESS,
+					payload: data,
+				});
+			}
+		} catch (error) {
+			dispatch({ type: FETCH_TASKS_FAIL, payload: error.message });
+			toast.error("Failed to fetch tasks. Please try again.");
+		}
+	};
 
 export const addTask = (task) => async () => {
   try {
